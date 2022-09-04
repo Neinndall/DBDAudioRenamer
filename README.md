@@ -1,4 +1,4 @@
-# DBD_Extractor
+# DBD Extractor
 DBD Extractor is a tool written in bat that can extract the files from Dead by Daylight and the audios from BNK files and rename them.
 
 # Features
