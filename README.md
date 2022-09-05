@@ -3,6 +3,7 @@ DBD Extractor is a tool written in bat that can extract the files from Dead by D
 
 # Features
 - Extract audios from BNK files
+- Convert audios .wem to .ogg
 - Rename the audios from BNK files with the real name from XML files
 - In development more features...
 
