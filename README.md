@@ -1,5 +1,5 @@
-# DBD-AudioRenamer
-Is a tool that can extract the audio files from *BNK from Dead by Daylight and rename then according the XML files.
+# DBDAudioRenamer
+Is a tool that can extract the audio files from BNK from Dead by Daylight and rename the WEM files according the XML files.
 
 # Features
 - Extract audios files from BNK files
