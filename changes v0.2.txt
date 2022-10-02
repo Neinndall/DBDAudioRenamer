@@ -3,7 +3,9 @@ DBD AudioRenamer v0.2
 FEATURES & HOTFIXES
 - Adjusted WEM audio file parser script to not go into infinity with XML files
 - More precise information to the user
+- Replaced wwise_parse to other
+- Added several lines to the BAT file
 - Added a BNK audio file to TEST the tool
 - Better mobility between the cmd to avoid transforming WEM files to OGG inappropriate
 - Parser did not allow to choose several XML files and the tool stopped
-- Minor adjustments
+-Minor adjustments
