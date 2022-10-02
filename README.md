@@ -9,5 +9,6 @@ Is a tool that can extract the audio files from *BNK from Dead by Daylight and r
 
 # Dependencies
 
+- QuickBMS: https://aluigi.altervista.org/quickbms.htm
 - ww2ogg: https://github.com/hcs64/ww2ogg
 - bnkextr: https://github.com/eXpl0it3r/bnkextr
