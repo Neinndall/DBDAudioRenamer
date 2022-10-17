@@ -1,0 +1,19 @@
+DBD AudioRenamer v0.2
+
+IMPROVEMENTS AND FEATURES
+- Adjusted the WEM audio file parser script to not go to infinity with XML files
+- More precise information to the user
+- Replaced wwise_parse to another
+- Added several lines to the BAT file
+- Added BNK audio file to TEST the tool
+- Better mobility between cmd to avoid transforming WEM files to inappropriate OGG
+- Parser did not allow choosing multiple XML files and the tool stopped
+- Minor adjustments
+
+
+DBD AudioRenamer v0.2.1
+
+IMPROVEMENTS AND FEATURES
+- The addresses by the BATCH string have been improved so that it does not cause errors
+- Added the ability to name outputs
+- Added a help note in the phase of renaming .ogg files

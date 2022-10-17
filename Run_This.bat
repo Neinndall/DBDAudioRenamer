@@ -1,51 +1,141 @@
 @echo off
-title DBDAudioRenamer v0.2.0 for BNK, XML files by Th3Nigh7mare
+title DBDAudioRenamer v0.2.1 for BNK, XML files by Th3Nigh7mare
 color b
-FOR %%F IN ("Files\BNK\*.BNK") DO ("Tools\bnkextr.exe" "%%F" /nodir & MOVE "Files\BNK\*.wem" "Files\WEM")
+
+set dir_bnk=Files\BNK
+set dir_wem=Files\WEM
+
+for %%f in ("%dir_bnk%\*.bnk") do ("Tools\bnkextr.exe" "%%f" /nodir & move "%dir_bnk%\*.wem" "%dir_wem%")
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      	BNK Files was extracted in Files!
+echo. :::      				   BNK Files was extracted in Files!
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
 pause
-mkdir "Files/WEM/Renamed"
+
+cls
+set /p dir_folder=Do you want a dir to be created in "%dir_wem%" called renamed [Y/N]?
+
+if "%dir_folder%"=="Y" goto yes
+if "%dir_folder%"=="y" goto yes
+
+if "%dir_folder%"=="N" goto nop
+if "%dir_folder%"=="n" goto nop
+
+:yes
+mkdir "%dir_wem%\renamed"
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      The renamed directory was created!
+echo. :::      				   The renamed directory was created!
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
 pause
-MOVE "Files\XML\*.XML" "Files\WEM\"
+
+:move_files_renamed
+
+set dir_wem=Files\WEM
+set dir_xml=Files\XML
+
+MOVE "%dir_xml%\*.XML" "%dir_wem%"
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      The XML files was moved to "Files/Wem" folder
+echo. :::      			    All the XML files was moved to %dir_wem% folder
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
-FOR /R %%F IN (*.xml) DO ("Tools\quickbms.exe" "Tools\scripts\New_parse.bms" "%%F" "Files\WEM\Renamed")
+cls
+echo.Note: It will ask you if you want to overwrite because the files already exist, the recommendation is: r
+pause
+
+for /f %%b in ("%dir_wem%\*.XML") DO ("Tools\quickbms.exe" "Tools\scripts\New_parse.bms" "%%b" "Files\WEM\renamed")
+pause
+
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      The Audio Files was renamed in "Files/Wem/Renamed"
+echo. :::      			   The Audio Files was renamed in "Files/WEM/renamed"
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
 pause
-MOVE "Files\WEM\*.XML" "Files\XML\"
+
+MOVE "%dir_wem%\*.XML" "%dir_xml%"
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      The XML was moved to "Files/Wem" folder
+echo. :::      				The XML was moved to "%dir_wem%" folder
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
-CD Files/WEM/Renamed
-FOR /R %%F IN ("*.WEM") DO ("../../../ww2ogg\ww2ogg.exe" "%%F" --pcb "../../../ww2ogg/packed_codebooks_aoTuV_603.bin")
+pause
+
+CD Files/WEM/renamed
+for /r %%b in ("/*.WEM") do ("../../../ww2ogg/ww2ogg.exe" "%%b" --pcb "../../../ww2ogg/packed_codebooks_aoTuV_603.bin")
+pause
+
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
+echo. ::: 
+echo. :::      		The Audio Files was converted to OGG and are located in "Files/WEM/renamed" folder
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
+pause
+exit
+
+:nop
+set /p dir_called=Then...what do you want the directory to be called?
+mkdir "%dir_wem%\%dir_called%"
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
+echo. ::: 
+echo. :::      			    The "%dir_wem%\%dir_called%" directory was created!
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
+pause
+
+:move_files_new
+
+set dir_wem=Files\WEM
+set dir_xml=Files\XML
+
+MOVE "%dir_xml%\*.XML" "%dir_wem%"
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
+echo. ::: 
+echo. :::      			    All the XML files was moved to %dir_wem% folder
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
+cls
+echo.Note: It will ask you if you want to overwrite because the files already exist, the recommendation is: r
+pause
+
+for /f %%b in ("%dir_wem%\*.XML") do ("Tools\quickbms.exe" "Tools\scripts\New_parse.bms" "%%b" "Files\WEM\%dir_called%")
+pause
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
+echo. ::: 
+echo. :::      			   The Audio Files was renamed in "Files/WEM/%dir_called%"
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
+pause
+
+MOVE "%dir_wem%\*.XML" "%dir_xml%"
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
+echo. ::: 
+echo. :::      				The XML was moved to "%dir_wem%" folder
+echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
+echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
+pause
+
+CD Files/WEM/%dir_called%/
+for /r %%b in ("*.WEM") do ("../../../ww2ogg/ww2ogg.exe" "%%b" --pcb "../../../ww2ogg/packed_codebooks_aoTuV_603.bin")
 PAUSE
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
 echo. ::: 
-echo. :::      The Audio Files was converted to OGG and are located in "Files/Wem/Renamed" folder
+echo. :::      The Audio Files was converted to OGG and are located in "Files/WEM/%dir_called%" folder
 echo. :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
 echo. :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\ 
 pause
+exit
