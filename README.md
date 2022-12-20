@@ -5,7 +5,8 @@ It is a tool that can extract Dead by Daylight BNK WEM files, convert them to OG
 - Extract WEM audios from BNK files
 - Convert WEM audios to OGG files
 - Rename the WEM/OGG audios files
-- In development more features...
+
+More Features coming...
 
 # Dependencies
 
