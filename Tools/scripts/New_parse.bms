@@ -41,7 +41,7 @@ startfunction soundbanks
 				log FNAME 0 SIZE MEMORY_FILE
 			endif
 		endif
-		math SEARCH += 12
+		math SEARCH += 10
 		goto SEARCH
 	next i
 endfunction
