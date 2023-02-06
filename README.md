@@ -2,8 +2,8 @@
 It is a tool that can extract Dead by Daylight files and rename audio files based on XML files.
 
 # Features
-- [NEW] Extract files from PAK files from UE (v.4.27)
-- Extract sound files (.bnk/.wem)
+- Extract files from PAK files from UE (v.4.27)
+- Extract sound files (.bnk -> .wem)
 - Rename audio files (.wem -> .ogg) with the (.xml) files
 
 More Features coming...
