@@ -3,7 +3,7 @@
 # note 1: all *.wem files must be in the same folder as this script and the txt
 # note 2: script will maintain the original folder structure
 #
-# (c) by AlphaTwentyThree of Zenhax
+# (c) by AlphaTwentyThree of Zenhax and edited by Neinndall
 # script for QuickBMS http://quickbms.aluigi.org
 
 get EXT extension
