@@ -1,88 +1,117 @@
 @echo off
-title DBDAudioRenamer v0.3.1.0 (PAK, BNK, XML files by Neinndall)
-color b
+set version=0.3.1
+title DBDAudioRenamer v0.3.1 (by Neinndall)
+
+:WELCOME
+cls
+set INPUT=FALSE
+echo :---. .---. .---.  .--. .-..-..---. .-. .--. .---.  .--. .-..-. .--. .-..-. .--. .---. 
+echo : .  :: .; :: .  :: .; :: :: :: .  :: :: ,. :: .; :: .--': `: :: .; :: `' :: .--': .; :
+echo : :: ::   .': :: ::    :: :: :: :: :: :: :: ::   .': `;  : .` ::    :: .. :: `;  :   .'
+echo : :; :: .; :: :; :: :: :: :; :: :; :: :: :; :: :.`.: :__ : :. :: :: :: :; :: :__ : :.`.
+echo :___.':___.':___.':_;:_;`.__.':___.':_;`.__.':_;:_;`.__.':_;:_;:_;:_;:_;:_;`.__.':_;:_;
+echo.
+echo Welcome to my tool DBDAudioRenamer v%version% used to extract, rename audio files and more!
+echo Do you want to know the latest features of the tool? [Y/N]
+set /p Option="Choose: "
+if %Option%==Y goto BROWSER
+if %Option%==y goto BROWSER
+if %Option%==N goto MENU_START
+if %Option%==n goto MENU_START
+if %INPUT%==FALSE goto ERROR_WELCOME
+
+:BROWSER
+start https://github.com/Neinndall/DBDAudioRenamer/releases
+echo.
+echo The browser will open the latest patch notes for the tool!
+echo Once you review them, press ENTER to start!
+pause>nul
+
 :MENU_START
 cls
-SET DIR_BNK=Files\BNK
-SET DIR_WEM=Files\WEM
-SET DIR_XML=Files\XML
-SET INPUT=FALSE
-echo :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
-echo :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
-echo :::
-echo :::			MAIN MENU: OPTIONS
-echo :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
-echo :::
-echo :::	1) Extract Audio Files / Rename Files (from BNK files)
-echo :::	2) Extract Audio Files (from PAK files)
-echo :::	3) [WIP]
-echo :::	4) Exit
-echo :::  _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____
-echo :::  \____\\____\\____\\____\\____\\____\\____\\____\\____\\____\\____\
-echo.
-set /p MENU_OPTION="OPTION: "
-IF %MENU_OPTION%==1 GOTO EXTRACT_BNK
-IF %MENU_OPTION%==2 GOTO EXTRACT_GAME
-IF %MENU_OPTION%==4 GOTO EXIT
-IF %INPUT%==FALSE GOTO ERROR
+set DIR_BNK=Files\BNK
+set DIR_WEM=Files\WEM
+set DIR_XML=Files\XML
+set INPUT=FALSE
+                                                                                                                       
+echo :---. .---. .---.  .--. .-..-..---. .-. .--. .---.  .--. .-..-. .--. .-..-. .--. .---. 
+echo : .  :: .; :: .  :: .; :: :: :: .  :: :: ,. :: .; :: .--': `: :: .; :: `' :: .--': .; :
+echo : :: ::   .': :: ::    :: :: :: :: :: :: :: ::   .': `;  : .` ::    :: .. :: `;  :   .'
+echo : :; :: .; :: :; :: :: :: :; :: :; :: :: :; :: :.`.: :__ : :. :: :: :: :; :: :__ : :.`.
+echo :___.':___.':___.':_;:_;`.__.':___.':_;`.__.':_;:_;`.__.':_;:_;:_;:_;:_;:_;`.__.':_;:_;
+echo  _____________________________________________________________________________________
+echo :									    
+echo :				      MAIN MENU: OPTIONS
+echo :_____________________________________________________________________________________
+echo :
+echo : 		1) Extract audio files from .BNK and rename them
+echo : 		2) Extract audio files from .PAK
+echo : 		3) WIP
+echo : 		4) Exit
+echo :______________________________________________________________________________________
+set /p MENU_OPTION="Choose: "
+if %MENU_OPTION%==1 goto EXTRACT_BNK
+if %MENU_OPTION%==2 goto EXTRACT_GAME
+if %MENU_OPTION%==4 goto EXIT
+if %INPUT%==FALSE goto ERROR_MENU_START
 
 :EXTRACT_BNK
-echo The extract audio from BNK files will start. Press a key for continue.
-pause>nul
-cls
-FOR %%A IN ("%DIR_BNK%\*.BNK") DO ("Tools\bnkextr.exe" "%%A" /nodir & MOVE %DIR_BNK%\*.WEM "%DIR_WEM%")
 echo.
-echo BNK Files was extracted to %DIR_WEM%. Press a key for continue.
+echo Audio files from .BNK will be extracted. Press ENTER for continue.
 pause>nul
 cls
+for %%a in ("%DIR_BNK%\*.BNK") do ("Tools\bnkextr.exe" "%%a" /nodir & move %DIR_BNK%\*.WEM "%DIR_WEM%")
+echo.
+echo BNK Files was extracted to %DIR_WEM%. Press ENTER for continue.
+pause>nul
 set /p DIR_FOLDER="Do you want a dir to be created in %DIR_WEM% called: Output, if it wasn't created? [Y/N]?: "
 
-IF %DIR_FOLDER%==Y goto yes
-IF %DIR_FOLDER%==y goto yes
-IF %DIR_FOLDER%==N goto EXIT
-IF %DIR_FOLDER%==n goto EXIT
-IF %INPUT%==FALSE GOTO ERROR
+if %DIR_FOLDER%==Y goto yes
+if %DIR_FOLDER%==y goto yes
+if %DIR_FOLDER%==N goto EXIT
+if %DIR_FOLDER%==n goto EXIT
+if %INPUT%==FALSE goto ERROR
 
 :yes
 mkdir %DIR_WEM%\Output
 echo.
-echo The Output directory was created! Press a key for continue.
+echo The Output directory was created! Press ENTER for continue.
 pause>nul
 
 MOVE %DIR_XML%\*.XML %DIR_WEM%
 echo.
-echo All the XML files was moved to %DIR_WEM% folder. Press a key for continue.
+echo All the XML files was moved to %DIR_WEM% folder. Press ENTER for continue.
 pause>nul
 cls
 echo Note: It will ask you if you want to overwrite because the files already exist, the recommendation is: A
 pause>nul
 
-FOR %%B IN ("%DIR_WEM%\*.XML") DO ("Tools\quickbms.exe" "Tools\scripts\New_parse.bms" "%%B" "Files\WEM\Output")
+for %%b in ("%DIR_WEM%\*.XML") do ("Tools\quickbms.exe" "Tools\scripts\New_parse.bms" "%%b" "Files\WEM\Output")
 echo.
-echo The Audio Files was renamed in %DIR_WEM%\Output. Press a key for continue.
+echo The Audio Files was renamed in %DIR_WEM%\Output. Press ENTER for continue.
 pause>nul
 
 MOVE %DIR_WEM%\*.XML %DIR_XML%
 echo.
-echo The XML was moved to %DIR_XML% folder. Press a key for continue.
+echo The XML was moved to %DIR_XML% folder. Press ENTER for continue.
 pause>nul
 
 CD Files\WEM\Output
-FOR /R %%C IN (\*.WEM) DO ("..\..\..\ww2ogg\ww2ogg.exe" "%%C" --pcb "..\..\..\ww2ogg\packed_codebooks_aoTuV_603.bin")
+for /r %%c in (\*.WEM) do ("..\..\..\ww2ogg\ww2ogg.exe" "%%c" --pcb "..\..\..\ww2ogg\packed_codebooks_aoTuV_603.bin")
 echo.
-echo The Audio Files was converted to OGG. Are located in Files/WEM/Output folder. Press a key for continue.
+echo The Audio Files was converted to OGG in %DIR_WEM%\Output folder. Press ENTER for continue.
 pause>nul
 echo.
 set /p clean="To end, do u want to clean up unnecessary audio files [Y/N]?: "
-IF %clean%==Y del /s /q *.wem
-IF %clean%==y del /s /q *.wem
-IF %clean%==N GOTO EXIT
-IF %clean%==n GOTO EXIT
+if %clean%==Y del /s /q *.wem
+if %clean%==y del /s /q *.wem
+if %clean%==N goto EXIT
+if %clean%==n goto EXIT
 
 echo.
-echo Finishing process. Press a key for close.
+echo Finishing process. Press ENTER for closing the tool.
 pause>nul
-GOTO EXIT
+goto EXIT
 
 REM --------------------------------------------------------------------------------- Extract files from *.PAK
 
@@ -106,18 +135,22 @@ pause>nul
 REM --------------------------------------------------------------------------------- Options(EXIT, ERROR...)
 
 :EXIT
-echo :::  _____ _____ _____ _____ _____ _____ 
-echo :::  
-echo :::  The application is closing...
-echo :::  _____ _____ _____ _____ _____ _____ 
-timeout 2 > nul
+echo.
+echo  _____________________________________________________________________________________
+echo :									    
+echo :		 The application is closing. Press ENTER for finish.
+echo :_____________________________________________________________________________________
+pause>nul
 exit
 
-:ERROR
-echo :::  _____ _____ _____ _____ _____ _____ 
-echo :::  
-echo :::  Option not available, return to the menu...
-echo :::  _____ _____ _____ _____ _____ _____ 
+:ERROR_MENU_START
+echo The entered input is invalid.
 timeout 2 > nul
 cls
-GOTO MENU_START
+goto MENU_START
+
+:ERROR_WELCOME
+echo The entered input is invalid.
+timeout 2 > nul
+cls
+goto WELCOME
