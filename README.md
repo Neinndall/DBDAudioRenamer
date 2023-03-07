@@ -8,8 +8,6 @@ It is a tool that can extract Dead by Daylight files and rename audio files base
 - Rename audio files with the (.xml) files
 
 # [WIP] Future Features 
-- ReVorb: Readable .OGG to .OGG
-
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
