@@ -15,13 +15,13 @@ Any new feature suggestions? Create a ticket talking about it.
 
 # Images about the tool
 
-WELCOME SCREEN (Patch Notes, version and much more...)
+>> Welcome Screen (Patch Notes, version and much more...)
 ![image](https://user-images.githubusercontent.com/66384195/220985445-ea9d532a-5d3a-4263-9101-be3fe292b705.png)
 
-MAIN MENU (Extract audios files from .bnk, .pak and rename then according .xml files)
+>> Main Menu (Extract audios files from .bnk, .pak and rename then according .xml files)
 ![image](https://user-images.githubusercontent.com/66384195/220985596-b39bf1ce-fb4e-4ea7-8efc-a910e191b9d8.png)
 
-FINAL RESULT (Audio files renamed converted in .ogg)
+>> Final Result (Audio files renamed converted in .ogg)
 ![image](https://user-images.githubusercontent.com/66384195/220987400-248accc0-5e5d-4b98-98a3-5d20ab401d91.png)
 
 # Dependencies
