@@ -8,7 +8,8 @@ It is a tool that can extract Dead by Daylight files and rename audio files base
 - Rename audio files with the (.xml) files
 
 # [WIP] Future Features 
-...
+- ReVorb: Readable .OGG to .OGG
+
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
@@ -27,7 +28,7 @@ Any new feature suggestions? Create a ticket talking about it.
 
 ![image](https://user-images.githubusercontent.com/66384195/220987400-248accc0-5e5d-4b98-98a3-5d20ab401d91.png)
 
-# Dependencies
+# Libraries
 - QuickBMS: https://aluigi.altervista.org/quickbms.htm
 - ww2ogg: https://github.com/hcs64/ww2ogg
 - bnkextr: https://github.com/eXpl0it3r/bnkextr
