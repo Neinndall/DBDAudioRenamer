@@ -15,11 +15,11 @@ Any new feature suggestions? Create a ticket talking about it.
 
 > Welcome Screen (Patch Notes, version and much more...)
 
-![image](![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/abf54e5d-1304-4d70-bbb1-848667f24c4e))
+![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/40bca9b3-7367-42d8-8c15-89202466ae66)
 
 > Main Menu (Extract audios files from .bnk, .pak and rename then according .xml files)
 
-![image](![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/b738aa3a-a059-4d97-a519-61e53b68bef8))
+![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/9683ad4a-a262-4c2d-ab9b-0a32981866db)
 
 > Final Result (Audio files renamed converted in .ogg)
 [WIP]
