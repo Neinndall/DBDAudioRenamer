@@ -1,13 +1,12 @@
 # DBDAudioRenamer
-It is a tool that can extract Dead by Daylight files and rename audio files based on XML files.
+It is a tool written in python, which can extract the files and rename them based on the XML files.
 
 # Features
-- Extract files from PAK files from UE (v.4.27)
+- [Removed, for now...] Extract files from PAK files from UE (v.4.27)
 - Extract sound files (.bnk -> .wem)
 - Convert audio files (.wem -> .ogg) 
+- Convert audio files (.ogg -> .ogg revorb)
 - Rename audio files with the (.xml) files
-
-# [WIP] Future Features 
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
@@ -16,15 +15,14 @@ Any new feature suggestions? Create a ticket talking about it.
 
 > Welcome Screen (Patch Notes, version and much more...)
 
-![image](https://user-images.githubusercontent.com/66384195/220985445-ea9d532a-5d3a-4263-9101-be3fe292b705.png)
+![image](![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/abf54e5d-1304-4d70-bbb1-848667f24c4e))
 
 > Main Menu (Extract audios files from .bnk, .pak and rename then according .xml files)
 
-![image](https://user-images.githubusercontent.com/66384195/220985596-b39bf1ce-fb4e-4ea7-8efc-a910e191b9d8.png)
+![image](![image](https://github.com/Neinndall/DBDAudioRenamer/assets/66384195/b738aa3a-a059-4d97-a519-61e53b68bef8))
 
 > Final Result (Audio files renamed converted in .ogg)
-
-![image](https://user-images.githubusercontent.com/66384195/220987400-248accc0-5e5d-4b98-98a3-5d20ab401d91.png)
+[WIP]
 
 # Libraries
 - QuickBMS: https://aluigi.altervista.org/quickbms.htm
