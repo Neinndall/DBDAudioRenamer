@@ -1,5 +1,5 @@
 # DBDAudioRenamer
-It is a tool written in python, which can extract files from UE4 and rename the audio files based on the XML files.
+It is a tool that can extract UE4 files and rename audio files based on XML files.
 
 # Features
 - [Removed, for now...] Extract files from PAK files from UE (v.4.27)
