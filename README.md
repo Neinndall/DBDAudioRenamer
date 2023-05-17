@@ -1,5 +1,5 @@
 # DBDAudioRenamer
-It is a tool written in python, which can extract the files and rename them based on the XML files.
+It is a tool written in python, which can extract files and rename them based on the XML files.
 
 # Features
 - [Removed, for now...] Extract files from PAK files from UE (v.4.27)
