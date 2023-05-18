@@ -10,7 +10,6 @@ from utils.ui import UI, Style
 from utils.config import config
 
 # Set Directories
-DIR_ORIG = os.getcwd()
 DIR_BNK = "Files/BNK"
 DIR_WEM = "Files/WEM"
 DIR_XML = "Files/XML"
@@ -124,7 +123,7 @@ def extract_bnk():
                 print(f"Skipping file {bnk_file} as a .wem file with the same name already exists in the destination directory.")
                 
         else:
-            print("No .bnk files found in the directory.")
+            print("No .BNK files found in the directory.")
 
     print("Done!")
     input()
@@ -147,7 +146,7 @@ def rename_audio():
     input()
     clear_screen()
 
-    print("Important: It will ask you if you want to overwrite because the files already exist, the recommendation is: a")
+    print("| Important: It will ask you if you want to overwrite because the files already exist, the recommendation is: a")
     input()
 
     for root, _, files in os.walk(DIR_WEM):
