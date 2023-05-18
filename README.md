@@ -2,10 +2,9 @@
 It is a tool that can extract UE4 files and rename audio files based on XML files.
 
 # How to use it
-
 1. Open ur CMD and write:
-2. | cd <the folder where is DBDAudioRenamer> **Example: C:\Users\Neinndall\Downloads\DBDAudioRenamer**
-3. | pip install -r requirements.txt
+2. Example: cd C:\Users\Neinndall\Downloads\DBDAudioRenamer
+3. pip install -r requirements.txt
 
 If anything else is missing, let me know and I'll update it.
 
