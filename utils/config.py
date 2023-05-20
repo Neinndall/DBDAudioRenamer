@@ -1,4 +1,4 @@
 class config:
     made = "Neinndall"
     name = "DBDAudioRenamer"
-    version = "0.4.1"
+    version = "0.5.0"
