@@ -1,5 +1,5 @@
 # DBDAudioRenamer
-It is a tool that can extract UE4 files and rename audio files based on XML files.
+It is a tool for Dead by Daylight that can extract UE4 files and rename audio files based on XML files.
 
 # How to use it
 1. Open ur CMD and write:
