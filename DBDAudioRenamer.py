@@ -8,22 +8,19 @@ from colorama import Fore
 
 from utils.ui import UI, Style
 from utils.config import config
+from utils.clear import clear
 
 # Set Directories
 DIR_BNK = "Files/BNK"
 DIR_WEM = "Files/WEM"
 DIR_XML = "Files/XML"
 DIR_OUTPUT = "Files/WEM/Output"
-
-# Clear screen
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
     
 # Menu Welcome
 def display_welcome_menu():
-    clear_screen()
+    clear.screen()
     UI.logo()
-    print(f"| Welcome to my tool used to extract, rename audio files and much more! What do you want to do?"),
+    print("| Welcome to my tool used to extract, rename audio files and much more! What do you want to do?"),
     while(True):
         welcome_option = UI.menu(
             "Choose an option:", [
@@ -44,16 +41,17 @@ def display_welcome_menu():
             
 # My Github (Updates)
 def open_browser():
+    print("| The browser will open the latest patch notes for the tool!")
+    print("| Once you review them, press ENTER to start!")
+    
     patch_notes_url = f"https://github.com/{config.made}/{config.name}/releases"
     webbrowser.open(patch_notes_url)
-
-    print("| The browser will open the latest patch notes for the tool!")
-    input("| Once you review them, press ENTER to start!")
+    input()
     display_main_menu()
 
 # Main Menu
 def display_main_menu():
-    clear_screen()
+    clear.screen()
     UI.logo()
     while(True):
         main_option = UI.menu(
@@ -82,7 +80,7 @@ def display_main_menu():
 
 # Menu Extract
 def display_extract_menu():
-    clear_screen()
+    clear.screen()
     UI.logo()
     while True:
         extract_option = UI.menu(
@@ -144,7 +142,7 @@ def rename_audio():
                 shutil.move(os.path.join(root, file), DIR_WEM)
     print("Done!")
     input()
-    clear_screen()
+    clear.screen()
 
     print("| Important: It will ask you if you want to overwrite because the files already exist, the recommendation is: a")
     input()
@@ -170,7 +168,7 @@ def rename_audio():
 
 # Menu convert audio files (OGG and more...)
 def display_convert_menu():
-    clear_screen()
+    clear.screen()
     UI.logo()
     while(True):
         convert_option = UI.menu(
@@ -219,7 +217,7 @@ def convert_ogg_with_revorb():
         for file in files:
             if file.endswith(".ogg"):
                 ogg_file = os.path.join(root, file)
-                print(f"Converting file: {file} to: OGG")
+                print(f"Converting file: {file} to: OGG ReVorb")
                 os.system(f"Tools\\revorb.exe \"{ogg_file}\" >nul")
     print()
     print(f"Done! Audio files were converted in {DIR_OUTPUT} folder.")
@@ -228,7 +226,7 @@ def convert_ogg_with_revorb():
 
 # Menu clean files
 def display_clean_menu():
-    clear_screen()
+    clear.screen()
     UI.logo()
     while(True):
         clean_option = UI.menu(
@@ -272,13 +270,11 @@ def show_unnecessary_files():
         input()
     else:
         print()
-        input("Waiting...")  
-
+        input("Waiting!")  
     display_clean_menu()
     
 # Clean unnecessary files (WEM)
 def clean_unnecessary_files():
-
     files_found = False  # Variable to track if files were found
 
     for root, _, files in os.walk(DIR_OUTPUT):
@@ -298,7 +294,7 @@ def clean_unnecessary_files():
     
 # Close
 def exit_program():
-    print("Exiting the tool...")
+    print("Exiting the tool")
     input()
     exit()
 
