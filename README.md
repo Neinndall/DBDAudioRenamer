@@ -2,7 +2,7 @@
 Tool made for dead by daylight, which u can extract files from UE4 and rename the audio files based on XML files!
 
 # What do you need?
-- [Python v3.9.0](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)
+- [Python v3.X](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)
 
 # How to use it
 
