@@ -13,11 +13,12 @@ Tool made for dead by daylight, which u can extract files from UE4 and rename th
 If anything else is missing, let me know and I'll update it.
 
 # Features
+- [X] [Supported Games] Dead by Daylight.
 - [ ] [Removed, for now...] Extract files from PAK files from UE (v.4.27)
-- [x] Extract sound files (.bnk -> .wem)
-- [x] Convert audio files (.wem -> .ogg) 
-- [x] Convert audio files (.ogg -> .ogg revorb)
-- [x] Rename audio files with the (.xml) files
+- [X] Extract sound files (.bnk -> .wem)
+- [X] Convert audio files (.wem -> .ogg) 
+- [X] Convert audio files (.ogg -> .ogg revorb)
+- [X] Rename audio files with the (.xml) files
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
