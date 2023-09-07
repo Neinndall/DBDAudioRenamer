@@ -131,6 +131,8 @@ def extract_bnk():
 # Rename audio files with a script
 def rename_audio():
     subprocess.run(["python", "Tools/scripts/renamer_parse.py"])
+    print()
+    print(f"Done! Audio files were renamed in {DIR_OUTPUT} folder.")
     input()
     display_main_menu()
 
