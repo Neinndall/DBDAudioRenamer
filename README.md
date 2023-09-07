@@ -24,6 +24,6 @@ If anything else is missing, let me know and I'll update it.
 Any new feature suggestions? Create a ticket talking about it.
 
 # Libraries
-- QuickBMS: https://aluigi.altervista.org/quickbms.htm
-- ww2ogg: https://github.com/hcs64/ww2ogg
-- bnkextr: https://github.com/eXpl0it3r/bnkextr
+- [revorb](https://github.com/ItsBranK/ReVorb)
+- [ww2ogg](https://github.com/hcs64/ww2ogg)
+- [bnkextr](https://github.com/eXpl0it3r/bnkextr)
