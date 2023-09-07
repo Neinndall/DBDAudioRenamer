@@ -18,7 +18,7 @@ If anything else is missing, let me know and I'll update it.
 - [X] Extract sound files (.bnk -> .wem)
 - [X] Convert audio files (.wem -> .ogg) 
 - [X] Convert audio files (.ogg -> .ogg revorb)
-- [X] Rename audio files (.wem) with the new renamer tool written in PYTHON for (.xml) files
+- [X] Rename audio files (.wem) with the new script parser renamer for (.xml) files
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
