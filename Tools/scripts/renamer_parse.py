@@ -62,6 +62,3 @@ for wem_file in os.listdir(wem_dir):
         os.makedirs(os.path.join(output_base, "Unknown Files"), exist_ok=True)
         os.rename(os.path.join(wem_dir, wem_file), os.path.join(output_base, "Unknown Files", wem_file))
         print(f'File: {wem_file} not found in XML files, moved to folder Unknown Files')
-
-input()
-print("Done!")
