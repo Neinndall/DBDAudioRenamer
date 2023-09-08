@@ -2,6 +2,7 @@ import os
 import time
 import shutil
 import webbrowser
+import subprocess
 
 from datetime import datetime
 from colorama import Fore
@@ -14,7 +15,7 @@ from utils.clear import clear
 DIR_BNK = "Files/BNK"
 DIR_WEM = "Files/WEM"
 DIR_XML = "Files/XML"
-DIR_OUTPUT = "Files/WEM/Output"
+DIR_OUTPUT = "Files/Output"
     
 # Menu Welcome
 def display_welcome_menu():
@@ -127,42 +128,11 @@ def extract_bnk():
     input()
     display_extract_menu()
 
-# Rename audio files with XML
+# Rename audio files with a script
 def rename_audio():
-    print("| A necessary directory called Output will be created!")
-    os.makedirs(DIR_OUTPUT, exist_ok=True)
-    print("Done!")
-    input()
-
-    print("| The XML files will be moved to the WEM directory.")
-    for root, _, files in os.walk(DIR_XML):
-        for file in files:
-            if file.endswith(".xml"):
-                print(f"| Moving file: {file} to: {DIR_WEM}")
-                shutil.move(os.path.join(root, file), DIR_WEM)
-    print("Done!")
-    input()
-    clear.screen()
-
-    print("| Important: It will ask you if you want to overwrite because the files already exist, the recommendation is: a")
-    input()
-
-    for root, _, files in os.walk(DIR_WEM):
-        for file in files:
-            if file.endswith(".xml"):
-                xml_file = os.path.join(root, file)
-                os.system(f"Tools\quickbms.exe Tools\scripts\parse.bms \"{xml_file}\" \"{DIR_OUTPUT}\"")
+    subprocess.run(["python", "Tools/scripts/renamer_parse.py"])
     print()
     print(f"Done! Audio files were renamed in {DIR_OUTPUT} folder.")
-    input()
-
-    print("| The XML files will be taken to their respective directory.")
-    for root, _, files in os.walk(DIR_WEM):
-        for file in files:
-            if file.endswith(".xml"):
-                print(f"| Moving file: {file} to: {DIR_XML}")
-                shutil.move(os.path.join(root, file), DIR_XML)
-    print("Done!")
     input()
     display_main_menu()
 
