@@ -1,8 +1,6 @@
 import os
 import xml.etree.ElementTree as ET
 
-# (c) by Neinndall. If you want to use this script, contact the owner or credit the repository.
-
 # Directories
 xml_dir = "Files\XML"
 wem_dir = "Files\WEM"
