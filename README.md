@@ -9,17 +9,19 @@ It is a tool for Dead by Daylight that can extract UE4 files and rename audio fi
 If anything else is missing, let me know and I'll update it.
 
 # Features
-- [Removed, for now...] Extract files from PAK files from UE (v.4.27)
-- Extract sound files (.bnk -> .wem)
-- Convert audio files (.wem -> .ogg) 
-- Convert audio files (.ogg -> .ogg revorb)
-- Rename audio files with the (.xml) files
+- [X] Extract files from PAK files from UE (v.4.27)
+  - Audio from Tomes (Tome01, Tome02...)
+  - Main Audio (Killers, survivors, gameplay...)
+- [X] Extract sound files (.bnk -> .wem)
+- [X] Convert audio files (.wem -> .ogg) 
+- [X] Convert audio files (.ogg -> .ogg revorb)
+- [X] Rename audio files (.wem) with the new script parser renamer for (.xml) files
 
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
 
 # Libraries
-- QuickBMS: https://aluigi.altervista.org/quickbms.htm
-- ww2ogg: https://github.com/hcs64/ww2ogg
-- bnkextr: https://github.com/eXpl0it3r/bnkextr
-- repak: https://github.com/trumank/repak
+- [revorb](https://github.com/ItsBranK/ReVorb)
+- [ww2ogg](https://github.com/hcs64/ww2ogg)
+- [bnkextr](https://github.com/eXpl0it3r/bnkextr)
+- [repak](https://github.com/trumank/repak)
