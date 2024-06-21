@@ -17,9 +17,6 @@ If anything else is missing, let me know and I'll update it.
 - [X] Convert audio files (.ogg -> .ogg revorb)
 - [X] Rename audio files (.wem) with the new script parser renamer for (.xml) files
 
-# Roadmap (To do)
-- [ ] Move the extracted .pak files to their corresponding folders
-
 # Suggestions
 Any new feature suggestions? Create a ticket talking about it.
 
