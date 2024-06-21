@@ -1,0 +1,115 @@
+DBDAudioRenamer v0.2
+FEATURES AND REVIEW
+- Adjusted the WEM audio file parser script to not go to infinity with XML files
+- More precise information to the user
+- Replaced wwise_parse to another
+- Added several lines to the BAT file
+- Added BNK audio file to TEST the tool
+- Better mobility between cmd to avoid transforming WEM files to inappropriate OGG
+- Parser did not allow choosing multiple XML files and the tool stopped
+- Minor adjustments
+
+DBDAudioRenamer v0.2.1
+IMPROVEMENTS AND FEATURES
+- The addresses by the BATCH string have been improved so that it does not cause errors
+- Added the ability to name outputs
+- Added a help note in the phase of renaming .ogg files
+
+DBDAudioRenamer v0.2.2
+IMPROVEMENTS AND FEATURES
+- Added to menu
+- Minor changes
+
+DBDAudioRenamer v0.2.3
+IMPROVEMENTS AND FEATURES
+- Added a process for deleting unnecessary audio files.
+- Minor changes.
+
+DBDAudioRenamer v0.2.3.1
+IMPROVEMENTS AND FEATURES
+- Minor changes.
+
+DBDAudioRenamer v0.2.3.2
+IMPROVEMENTS AND FEATURES
+- Minor changes.
+
+DBDAudioRenamer v0.3.0
+FEATURES AND IMPROVEMENTS
+- Added the ability to directly extract the most important AUDIO files from PAK files.
+- Added a folder where the extracted PAK files will be extracted, called: Extracted PAK Files
+- Some unnecessary code has been removed.
+- The code has been improved.
+
+DBDAudioRenamer v0.3.0.1
+IMPROVEMENTS AND FEATURES
+- You can now add multiple XML files to successfully rename WEM files.
+-There have been several bugs in the code.
+- Minor bugs.
+
+DBDAudioRenamer v0.3.1.0
+IMPROVEMENTS AND FEATURES
+- Added a beginning of the tool with: version, consult patches etc...
+- The code has been modified (new design, I hope you like it!)
+
+DBDAudioRenamer v0.4.0.0
+NEW FEATURES
+- The batch code has been redesigned to python
+- Added a new menu and logo written in python
+- A folder called utils (with the logo, among other important things) has been added to the program
+- Added the ability to convert from .OGG to .OGG (Revorb for use in software of edition)
+- A new menu has been added: CLEAN (in extract menu) to clean unnecessary files (.WEM)
+- More precise and clear information has been added to preview to the user what the tool is doing.
+- Added a section to separate sets
+- Several sub-menus have been added to the tool to separate future features.
+- Added Utils to incorporate other files linked to the tool.
+- Removed the EXTRACT: PAK files - Main Audio Files option (It will come back in an update with future improvements)
+- Removed the EXTRACT: PAK files - Audio files from Tomes option (It will come back in an update with future improvements)
+
+IMPROVEMENTS
+- Moved to Start Menu the ability to delete .WEM files after operations as an option.
+- Modified the code for a cleaner and clearer code.
+- Modified the LOGO of the tool.
+- Added set with all necessary directories code.
+- Added information when removing unnecessary WEM files to show the user which files to remove.
+- Added >nul to the code to avoid displaying long logs in the console.
+
+BUG FIXES
+- Fixed a bug in which the main logo did not appear in the interface
+- Fixed a bug where Revorb would not run correctly
+- Fixed a bug which caused some addresses to conflict with others
+
+DBDAudioRenamer v0.4.0.1
+IMPROVEMENTS
+- Moved "clear screen" to the utils folder as a class
+- Minor code adjustments
+
+BUG FIXES
+- A variable from Set Directories that was useless has been removed
+- Parameters have been removed from the code that were useless
+
+DBDAudioRenamer v0.4.1.0
+NEW
+- A more efficient script has been added to rename WEM files with XML files
+- Added (c) to the new script parser renamer
+
+IMPROVEMENTS
+- The function def rename_audio() has been removed to replace it with the script
+
+BUG FIXES
+- Some small adjustments to the code
+
+DBDAudioRenamer v0.5.0
+NEW FEATURES
+- [RETURN!] Added the ability to extract .PAK files
+- Added the ability to extract audio files from .PAK files
+- Added the ability to extract volume audio files from .PAK files
+
+IMPROVEMENTS
+- Extract the audio files from .BNK is now located in the MENU: Extract Files
+- Extract .PAK files is now located in the MENU: Extract Files
+- Minor code improvements
+- The name and version of the tool has been added to the tab
+
+BUG FIXES
+- Small fixes
+
