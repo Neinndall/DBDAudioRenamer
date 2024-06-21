@@ -2,9 +2,8 @@
 It is a tool for Dead by Daylight that can extract UE4 files and rename audio files based on XML files.
 
 # How to use it
-1. Open ur CMD and write:
-2. Example: cd C:\Users\Neinndall\Downloads\DBDAudioRenamer
-3. pip install -r requirements.txt
+1. In the CMD, where you have the DBDAudioRenamer files.
+2. Write: pip install -r requirements.txt
 
 If anything else is missing, let me know and I'll update it.
 
