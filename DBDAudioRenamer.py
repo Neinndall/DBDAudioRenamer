@@ -11,11 +11,14 @@ from utils.ui import UI, Style
 from utils.config import config
 from utils.clear import clear
 
+from utils.name import Name
+
 # Set Directories
 DIR_BNK = "Files/BNK"
 DIR_WEM = "Files/WEM"
 DIR_XML = "Files/XML"
 DIR_OUTPUT = "Files/Output"
+DIR_PAK_DEFAULT = "C:\Program Files (x86)\Steam\steamapps\common\Dead by Daylight\DeadByDaylight\Content\Paks"
     
 # Menu Welcome
 def display_welcome_menu():
@@ -87,13 +90,20 @@ def display_extract_menu():
         extract_option = UI.menu(
             "Choose an option:", [
                 ("1", "Audio files from .BNK"),
-                ("2", "Return"),
+                ("2", "Main audio files from .PAK"),
+                ("3", "Tome audio files from .PAK"),
+
+                ("4", "Return"),
                 ("0", "Exit")
             ]
         )
         if extract_option == 1:
             extract_bnk()
         elif extract_option == 2:
+            extract_main_audio()
+        elif extract_option == 3:
+            extract_tome_audio()
+        elif extract_option == 4:
             display_main_menu()
         elif extract_option == 0:
             exit_program()
@@ -127,9 +137,142 @@ def extract_bnk():
     print("Done!")
     input()
     display_extract_menu()
+    
+# Extract main audio files from PAK
+def extract_main_audio():
+    print()
+    print("| You are going to extract the most important audios from the PAK files!")
+    print(f"| Default Path: '{DIR_PAK_DEFAULT}' it would be correct?")
+    while True:
+        extract_main_option = UI.menu(
+            "Choose an option:", [
+                ("1", "Yes"),
+                ("2", "No")
+            ]
+        )
+        # Modified for QuickBMS - Removing the message
+        if extract_main_option == 1:
+            for root, _, files in os.walk(DIR_PAK_DEFAULT):
+                for file in files:
+                    if file.endswith("pakchunk1-Windows.pak"):
+                        pak_main_audio = os.path.join(root, file)
+                        print(f"Extracting PAK file: {file}")
+                        # Overwrite the output directory
+                        output_dir = os.path.join("Extracted Files", "Main Audio Files")
+
+                        if os.path.exists(output_dir):
+                            shutil.rmtree(output_dir)  # Delete the directory and its contents
+                        os.makedirs(output_dir)  # Create a new empty directory
+
+                        # Run the command and capture the output
+                        process = subprocess.Popen(["Tools\\quickbms_4gb_files.exe", "Tools\\bms\\unreal_tournament_4_0.4.27e_dead_by_daylight.bms", pak_main_audio, output_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=False)
+                        for line in process.stdout:
+                            line = line.decode(errors='ignore').strip()  # Decode and remove non-decodable characters
+                            if "Extracting PAK file" in line:
+                                print(line)
+            print("Done!")
+            input()
+            display_extract_menu()
+
+        # Modified for QuickBMS - Removing the message
+        elif extract_main_option == 2:
+            DIR_PAK_NEW = input("Por favor, introduce la nueva ruta de los archivos PAK: ")
+            for root, _, files in os.walk(DIR_PAK_NEW):
+                for file in files:
+                    if file.endswith("pakchunk1-Windows.pak"):
+                        pak_main_audio = os.path.join(root, file)
+                        print(f"Extracting PAK file: {file}")
+                        # Sobrescribir el directorio de salida
+                        output_dir = os.path.join("Extracted Files", "Main Audio Files")
+
+                        if os.path.exists(output_dir):
+                            shutil.rmtree(output_dir)  # Delete the directory and its contents
+                        os.makedirs(output_dir)  # Create a new empty directory
+
+                        # Run the command and capture the output
+                        process = subprocess.Popen(["Tools\\quickbms_4gb_files.exe", "Tools\\bms\\unreal_tournament_4_0.4.27e_dead_by_daylight.bms", pak_main_audio, output_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=False)
+                        for line in process.stdout:
+                            line = line.decode(errors='ignore').strip()  # Decode and remove non-decodable characters
+                            if "Extracting PAK file" in line:
+                                print(line)
+            print("Done!")
+            input()
+            display_extract_menu()
+        
+        elif extract_main_option is None:
+            input("Invalid option. Please try again.")
+            extract_main_audio()
+    
+# Extract tome audio files from PAK
+def extract_tome_audio():
+    print()
+    print("| You are going to extract the most important audios from the PAK files!")
+    print(f"| Default Path: '{DIR_PAK_DEFAULT}' it would be correct?")
+    while True:
+        extract_tome_option = UI.menu(
+            "Choose an option:", [
+                ("1", "Yes"),
+                ("2", "No")
+            ]
+        )
+        # Modified for QuickBMS - Removing the message
+        if extract_tome_option == 1:
+            for root, _, files in os.walk(DIR_PAK_DEFAULT):
+                for file in files:
+                    if file.endswith("pakchunk2-Windows.pak"):
+                        pak_tome_audio = os.path.join(root, file)
+                        print(f"Extracting PAK file: {file}")
+                        # Overwrite the output directory
+                        output_dir = os.path.join("Extracted Files", "Tome Audio Files")
+
+                        if os.path.exists(output_dir):
+                            shutil.rmtree(output_dir)  # Delete the directory and its contents
+                        os.makedirs(output_dir)  # Create a new empty directory
+
+                        # Run the command and capture the output
+                        process = subprocess.Popen(["Tools\\quickbms_4gb_files.exe", "Tools\\bms\\unreal_tournament_4_0.4.27e_dead_by_daylight.bms", pak_tome_audio, output_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=False)
+                        for line in process.stdout:
+                            line = line.decode(errors='ignore').strip()  # Decode and remove non-decodable characters
+                            if "Extracting PAK file" in line:
+                                print(line)
+            print("Done!")
+            input()
+            display_extract_menu()
+            
+        # Modified for QuickBMS - Removing the message
+        elif extract_tome_option == 2:
+            DIR_PAK_NEW = input("Please enter the new path of the PAK files: ")
+            for root, _, files in os.walk(DIR_PAK_NEW):
+                for file in files:
+                    if file.endswith("pakchunk2-Windows.pak"):
+                        pak_tome_audio = os.path.join(root, file)
+                        print(f"Extracting PAK file: {file}")
+                        # Overwrite the output directory
+                        output_dir = os.path.join("Extracted Files", "Tome Audio Files")
+
+                        if os.path.exists(output_dir):
+                            shutil.rmtree(output_dir)  # Delete the directory and its contents
+                        os.makedirs(output_dir)  # Create a new empty directory
+
+                        # Run the command and capture the output
+                        process = subprocess.Popen(["Tools\\quickbms_4gb_files.exe", "Tools\\bms\\unreal_tournament_4_0.4.27e_dead_by_daylight.bms", pak_tome_audio, output_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=False)
+                        for line in process.stdout:
+                            line = line.decode(errors='ignore').strip()  # Decode and remove non-decodable characters
+                            if "Extracting PAK file" in line:
+                                print(line)
+            print("Done!")
+            input()
+            display_extract_menu()
+        
+        elif extract_tome_option is None:
+            input("Invalid option. Please try again.")
+            extract_tome_audio()
 
 # Rename audio files with a script
 def rename_audio():
+    print("| You will rename all WEM audio with his real name. Press ENTER to start!")
+    input()
+    
     subprocess.run(["python", "Tools/scripts/renamer_parse.py"])
     print()
     print(f"Done! Audio files were renamed in {DIR_OUTPUT} folder.")
@@ -264,7 +407,7 @@ def clean_unnecessary_files():
     
 # Close
 def exit_program():
-    print("Exiting the tool")
+    print("Exiting the tool... Press a KEY!")
     input()
     exit()
 
