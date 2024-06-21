@@ -27,3 +27,4 @@ Any new feature suggestions? Create a ticket talking about it.
 - [ww2ogg](https://github.com/hcs64/ww2ogg)
 - [bnkextr](https://github.com/eXpl0it3r/bnkextr)
 - [renamer-parser](https://github.com/Neinndall/renamer-parser)
+- [QuickBMS](https://aluigi.altervista.org/quickbms.htm)
