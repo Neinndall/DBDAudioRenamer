@@ -24,4 +24,4 @@ Any new feature suggestions? Create a ticket talking about it.
 - [revorb](https://github.com/ItsBranK/ReVorb)
 - [ww2ogg](https://github.com/hcs64/ww2ogg)
 - [bnkextr](https://github.com/eXpl0it3r/bnkextr)
-- [renamer-parser](https://github.com/Neinndall/renamer-parser)
+- [dbd-renamer](https://github.com/Neinndall/dbd-renamer)
